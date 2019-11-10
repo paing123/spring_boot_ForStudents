@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.infinity.mapper.RideMapper">
+	<insert id="addRide"> <!-- id and method name must be same -->
+		INSERT INTO
+		ride(name,duration)
+		VALUES
+		(#{ride.name},#{ride.duration})
+	</insert>
+</mapper>
