@@ -39,4 +39,21 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="selectRideAndType"
+		resultType="com.infinity.model.RideAndType">
+		SELECT * FROM ride r inner join ridetype rt
+		on r.id = rt.id
+		<where>
+			<if test="ride.id!=null and ride.id!=0">
+				id = #{ride.id}
+			</if>
+			<if test="ride.name!=null">
+				and name like '%' #{ride.name} '%'
+			</if>
+			<if test="ride.duration!=null">
+				and duration like '%' #{ride.duration} '%'
+			</if>
+		</where>
+	</select>
 </mapper>
