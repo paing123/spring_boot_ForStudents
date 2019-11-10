@@ -3,13 +3,13 @@ package com.infinity.model;
 public class Ride {
 	public Integer id;
 	public String name;
-	public Integer duration;
+	public String duration;
 	
-	public Integer getDuration() {
+	public String getDuration() {
 		return duration;
 	}
-	
-	public void setDuration(Integer duration) {
+
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 

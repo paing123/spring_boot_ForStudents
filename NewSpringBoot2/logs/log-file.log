@@ -1,12 +1,30 @@
-2019-11-10 13:17:11.065  INFO 13196 --- [main] com.infinity.NewSpringBoot2Application   : Starting NewSpringBoot2Application on DESKTOP-70GHNSM with PID 13196 (started by Paing in C:\Users\Paing\Desktop\sts testing environment\NewSpringBoot2)
-2019-11-10 13:17:11.073  INFO 13196 --- [main] com.infinity.NewSpringBoot2Application   : No active profile set, falling back to default profiles: default
-2019-11-10 13:17:13.444  INFO 13196 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-11-10 13:17:13.446  INFO 13196 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
-2019-11-10 13:17:13.606  INFO 13196 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-11-10 13:17:15.235  INFO 13196 --- [main] com.infinity.NewSpringBoot2Application   : Started NewSpringBoot2Application in 4.871 seconds (JVM running for 5.318)
-2019-11-10 13:17:26.387  INFO 13196 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-11-10 13:17:30.745  INFO 13196 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-11-10 13:17:31.068  INFO 13196 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-11-10 13:17:31.080 DEBUG 13196 --- [http-nio-8080-exec-2] com.infinity.mapper.RideMapper.addRide   : ==>  Preparing: INSERT INTO ride(name,duration) VALUES (?,?) 
-2019-11-10 13:17:31.114 DEBUG 13196 --- [http-nio-8080-exec-2] com.infinity.mapper.RideMapper.addRide   : ==> Parameters: po(String), 66(Integer)
-2019-11-10 13:17:31.116 DEBUG 13196 --- [http-nio-8080-exec-2] com.infinity.mapper.RideMapper.addRide   : <==    Updates: 1
+2019-11-10 22:06:28.470  INFO 6384 --- [main] com.infinity.NewSpringBoot2Application   : Starting NewSpringBoot2Application on DESKTOP-70GHNSM with PID 6384 (started by Paing in C:\Users\Paing\Desktop\sts testing environment\NewSpringBoot2\NewSpringBoot2)
+2019-11-10 22:06:28.477  INFO 6384 --- [main] com.infinity.NewSpringBoot2Application   : No active profile set, falling back to default profiles: default
+2019-11-10 22:06:32.156  INFO 6384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-10 22:06:32.156  INFO 6384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-11-10 22:06:32.436  INFO 6384 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-10 22:06:34.422  INFO 6384 --- [main] com.infinity.NewSpringBoot2Application   : Started NewSpringBoot2Application in 6.866 seconds (JVM running for 7.507)
+2019-11-10 22:06:35.447  INFO 6384 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-10 22:06:35.606  INFO 6384 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-11-10 22:06:35.993  INFO 6384 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-11-10 22:06:36.007 DEBUG 6384 --- [http-nio-8080-exec-1] c.infinity.mapper.RideMapper.selectRide  : ==>  Preparing: SELECT * FROM ride 
+2019-11-10 22:06:36.039 DEBUG 6384 --- [http-nio-8080-exec-1] c.infinity.mapper.RideMapper.selectRide  : ==> Parameters: 
+2019-11-10 22:06:36.059 DEBUG 6384 --- [http-nio-8080-exec-1] c.infinity.mapper.RideMapper.selectRide  : <==      Total: 6
+2019-11-10 22:06:37.531 DEBUG 6384 --- [http-nio-8080-exec-2] c.infinity.mapper.RideMapper.selectRide  : ==>  Preparing: SELECT * FROM ride 
+2019-11-10 22:06:37.533 DEBUG 6384 --- [http-nio-8080-exec-2] c.infinity.mapper.RideMapper.selectRide  : ==> Parameters: 
+2019-11-10 22:06:37.537 DEBUG 6384 --- [http-nio-8080-exec-2] c.infinity.mapper.RideMapper.selectRide  : <==      Total: 6
+2019-11-10 22:06:41.686 DEBUG 6384 --- [http-nio-8080-exec-3] c.infinity.mapper.RideMapper.selectRide  : ==>  Preparing: SELECT * FROM ride WHERE name like '%' ? '%' 
+2019-11-10 22:06:41.688 DEBUG 6384 --- [http-nio-8080-exec-3] c.infinity.mapper.RideMapper.selectRide  : ==> Parameters: Paing(String)
+2019-11-10 22:06:41.691 DEBUG 6384 --- [http-nio-8080-exec-3] c.infinity.mapper.RideMapper.selectRide  : <==      Total: 3
+2019-11-10 22:07:36.578 DEBUG 6384 --- [http-nio-8080-exec-4] c.infinity.mapper.RideMapper.selectRide  : ==>  Preparing: SELECT * FROM ride WHERE duration like '%' ? '%' 
+2019-11-10 22:07:36.580 DEBUG 6384 --- [http-nio-8080-exec-4] c.infinity.mapper.RideMapper.selectRide  : ==> Parameters: 15(String)
+2019-11-10 22:07:36.589 DEBUG 6384 --- [http-nio-8080-exec-4] c.infinity.mapper.RideMapper.selectRide  : <==      Total: 2
+2019-11-10 22:11:25.719 DEBUG 6384 --- [http-nio-8080-exec-9] c.infinity.mapper.RideMapper.selectRide  : ==>  Preparing: SELECT * FROM ride 
+2019-11-10 22:11:25.721 DEBUG 6384 --- [http-nio-8080-exec-9] c.infinity.mapper.RideMapper.selectRide  : ==> Parameters: 
+2019-11-10 22:11:25.726 DEBUG 6384 --- [http-nio-8080-exec-9] c.infinity.mapper.RideMapper.selectRide  : <==      Total: 6
+2019-11-10 22:11:29.928 DEBUG 6384 --- [http-nio-8080-exec-10] c.infinity.mapper.RideMapper.deleteRide  : ==>  Preparing: DELETE FROM ride WHERE id = ? 
+2019-11-10 22:11:29.930 DEBUG 6384 --- [http-nio-8080-exec-10] c.infinity.mapper.RideMapper.deleteRide  : ==> Parameters: 28(Integer)
+2019-11-10 22:11:29.932 DEBUG 6384 --- [http-nio-8080-exec-10] c.infinity.mapper.RideMapper.deleteRide  : <==    Updates: 1
+2019-11-10 22:11:29.933 DEBUG 6384 --- [http-nio-8080-exec-10] c.infinity.mapper.RideMapper.selectRide  : ==>  Preparing: SELECT * FROM ride 
+2019-11-10 22:11:29.935 DEBUG 6384 --- [http-nio-8080-exec-10] c.infinity.mapper.RideMapper.selectRide  : ==> Parameters: 
+2019-11-10 22:11:29.938 DEBUG 6384 --- [http-nio-8080-exec-10] c.infinity.mapper.RideMapper.selectRide  : <==      Total: 5

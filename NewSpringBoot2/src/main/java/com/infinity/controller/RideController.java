@@ -31,8 +31,8 @@ public class RideController {
 	@RequestMapping(value = {"/","/ride"}, method = RequestMethod.GET)
 	public ModelAndView ride() {
 		ModelAndView mav = new ModelAndView("ride");
-		List<Ride> rides=rideServcie.selectRide();
 		Ride ride = new Ride();
+		List<Ride> rides=rideServcie.selectRide(ride);
 		mav.addObject("rides",rides);
 		mav.addObject("ride",ride);
 		return mav;
@@ -49,7 +49,9 @@ public class RideController {
 	public ModelAndView addRide(@ModelAttribute("ride") Ride ride) {
 		ModelAndView mav=new ModelAndView("ride");
 		rideServcie.addRide(ride);
-		List<Ride> rides=rideServcie.selectRide();
+		Ride ride1 = new Ride();
+		List<Ride> rides=rideServcie.selectRide(ride1);
+		mav.addObject("ride",ride1);
 		mav.addObject("rides",rides);
 		return mav;
 	}
@@ -60,8 +62,9 @@ public class RideController {
 		ride.setId(id);
 		rideServcie.deleteRide(ride);
 		ModelAndView mav=new ModelAndView("ride");
-		List<Ride> rides=rideServcie.selectRide();
-		mav.addObject("ride",new Ride());
+		Ride ride1 = new Ride();
+		List<Ride> rides=rideServcie.selectRide(ride1);
+		mav.addObject("ride",ride1);
 		mav.addObject("rides",rides);
 		return mav;
 	}
@@ -70,7 +73,7 @@ public class RideController {
 	public ModelAndView showUpdateRideForm(@ModelAttribute("id") int id) {
 		Ride ride = new Ride();
 		ride.setId(id);
-		Ride ride1 = rideServcie.selectRideByID(ride);
+		Ride ride1 = rideServcie.selectRide(ride).get(0);
 		ModelAndView mav = new ModelAndView("updateRide");
 		mav.addObject("ride", ride1);
 		return mav;
@@ -80,7 +83,7 @@ public class RideController {
 	public ModelAndView UpdateRide(@ModelAttribute("ride") Ride ride) {
 		rideServcie.updateRide(ride);
 		ModelAndView mav = new ModelAndView("ride");
-		List<Ride> rides = rideServcie.selectRide();
+		List<Ride> rides = rideServcie.selectRide(new Ride());
 		mav.addObject("rides", rides);
 		return mav;
 	}
@@ -88,19 +91,8 @@ public class RideController {
 	@RequestMapping(value = "/searchRide", method = RequestMethod.POST)
 	public ModelAndView searchRide(@ModelAttribute("ride") Ride ride) {
 		ModelAndView mav = new ModelAndView("ride");
-		if (ride.getName()==null & ride.getDuration()==null) {
-			List<Ride> rides = rideServcie.selectRide();//null null
-			mav.addObject("rides",rides);
-		}else if (ride.getName()!= null & ride.getDuration()!=null) {
-			List<Ride> rides = rideServcie.selectRideByNameDuration(ride);//name duration
-			mav.addObject("rides",rides);
-		}else if (ride.getName()!=null & ride.getDuration()==null) {
-			List<Ride> rides = rideServcie.selectRideByName(ride);
-			mav.addObject("rides",rides);
-		}else {
-			List<Ride> rides = rideServcie.selectRideByDuration(ride);
-			mav.addObject("rides",rides);
-		}
+		List<Ride> rides = rideServcie.selectRide(ride);
+		mav.addObject("rides",rides);
 		return mav;
 	}
 }

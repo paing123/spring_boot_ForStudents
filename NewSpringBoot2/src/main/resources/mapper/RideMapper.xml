@@ -3,10 +3,40 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.infinity.mapper.RideMapper">
+
 	<insert id="addRide"> <!-- id and method name must be same -->
 		INSERT INTO
 		ride(name,duration)
 		VALUES
 		(#{ride.name},#{ride.duration})
 	</insert>
+
+	<update id='updateRide'>
+	UPDATE ride
+	SET
+		name= #{ride.name},
+		duration = #{ride.duration}
+	WHERE 
+		id = #{ride.id}
+	</update>
+	
+	<delete id='deleteRide'>
+    	DELETE FROM ride WHERE id = #{ride.id}
+  </delete>
+  
+  <select id="selectRide"
+		resultType="com.infinity.model.Ride">
+		SELECT * FROM ride
+		<where>
+			<if test="ride.id!=null and ride.id!=0">
+				id = #{ride.id}
+			</if>
+			<if test="ride.name!=null">
+				and name like '%' #{ride.name} '%'
+			</if>
+			<if test="ride.duration!=null">
+				and duration like '%' #{ride.duration} '%'
+			</if>
+		</where>
+	</select>
 </mapper>

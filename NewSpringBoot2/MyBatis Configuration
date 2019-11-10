@@ -1,0 +1,6 @@
+MyBatis Configuration
+---------------------
+1. insert MyBatis Dependency
+2. configure mybatis-config.xml in resources
+3. insert mybatis classpath in application.properties
+4. write the mapper (Dynamic query)
