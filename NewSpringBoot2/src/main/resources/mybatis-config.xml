@@ -9,5 +9,6 @@
 	</settings>
 	<mappers>
 		<mapper resource="mapper/RideMapper.xml" />
+		<mapper resource="mapper/MemberMapper.xml" />
 	</mappers>
 </configuration>

@@ -31,7 +31,17 @@ public class RideController {
 		binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
 	}
 	
-	@RequestMapping(value = {"/","/ride"}, method = RequestMethod.GET)
+	@RequestMapping(value= {"/"}, method = RequestMethod.GET)
+	public String index() {
+		return "index";
+	}
+	
+	@RequestMapping(value= {"/login"}, method = RequestMethod.GET)
+	public String login() {
+		return "login";
+	}
+	
+	@RequestMapping(value = {"/member/ride"}, method = RequestMethod.GET)
 	public ModelAndView ride() {
 		ModelAndView mav = new ModelAndView("ride");
 		Ride ride = new Ride();
@@ -41,14 +51,14 @@ public class RideController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/addRide",method = RequestMethod.GET)
+	@RequestMapping(value="/member/addRide",method = RequestMethod.GET)
 	public ModelAndView addRide(){
 		ModelAndView mav=new ModelAndView("addRide");
 		mav.addObject("ride",new Ride());
 		return mav;
 	}
 	
-	@RequestMapping(value="/addRide", method = RequestMethod.POST)
+	@RequestMapping(value="/member/addRide", method = RequestMethod.POST)
 	public ModelAndView addRide(@Valid @ModelAttribute("ride") Ride ride,BindingResult bindingresult) {
 		if (bindingresult.hasErrors()) {
 			ModelAndView mav=new ModelAndView("addRide");
@@ -63,7 +73,7 @@ public class RideController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/deleteRide/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/member/deleteRide/{id}", method = RequestMethod.GET)
 	public ModelAndView deleteRide(@ModelAttribute("id") Integer id) {
 		Ride ride = new Ride();
 		ride.setId(id);
@@ -76,7 +86,7 @@ public class RideController {
 		return mav;
 	}
 	
-	@GetMapping("/updateRide/{id}")
+	@GetMapping("/member/updateRide/{id}")
 	public ModelAndView showUpdateRideForm(@ModelAttribute("id") int id) {
 		Ride ride = new Ride();
 		ride.setId(id);
@@ -86,7 +96,7 @@ public class RideController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/updateRide", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/updateRide", method = RequestMethod.POST)
 	public ModelAndView UpdateRide(@ModelAttribute("ride") Ride ride) {
 		rideServcie.updateRide(ride);
 		ModelAndView mav = new ModelAndView("ride");
@@ -95,7 +105,7 @@ public class RideController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/searchRide", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/searchRide", method = RequestMethod.POST)
 	public ModelAndView searchRide(@ModelAttribute("ride") Ride ride) {
 		ModelAndView mav = new ModelAndView("ride");
 		List<Ride> rides = rideServcie.selectRide(ride);

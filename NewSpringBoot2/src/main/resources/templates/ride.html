@@ -7,21 +7,22 @@
 </head>
 <body>
 	<div align="center">
-	<form th:action="@{/searchRide}" th:object="${ride}" method="post">
-		<table border="1">
-		<tr>
-			<td>Name</td>
-			<td><input type="text" th:field="*{name}"/></td>
-		</tr>
-		<tr>
-			<td>Duration:</td>
-			<td><input type="text" th:field="*{duration}"/></td>
-		</tr>
-		<tr>
-		<td colspan="2"><input type="submit" value="Search"></td>
-		</tr>
-		</table>
-	</form>
+		<form th:action="@{/member/searchRide}" th:object="${ride}"
+			method="post">
+			<table border="1">
+				<tr>
+					<td>Name</td>
+					<td><input type="text" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<td>Duration:</td>
+					<td><input type="text" th:field="*{duration}" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Search"></td>
+				</tr>
+			</table>
+		</form>
 	</div>
 	<br>
 	<br>
@@ -35,12 +36,17 @@
 				<td th:text="${ride.id}"></td>
 				<td th:text="${ride.name}"></td>
 				<td th:text="${ride.duration}"></td>
-				<td><a th:href="@{/deleteRide/{id}(id=${ride.id})}">Delete</a></td>
-				<td><a th:href="@{/updateRide/{id}(id=${ride.id})}">Update</a></td>
+				<td><a th:href="@{/member/deleteRide/{id}(id=${ride.id})}">Delete</a></td>
+				<td><a th:href="@{/member/updateRide/{id}(id=${ride.id})}">Update</a></td>
 			</tr>
 		</table>
 		<div>
-			<a th:href="@{/addRide}">Add Ride</a>
+			<a th:href="@{/member/addRide}">Add Ride</a>
+		</div>
+		<div>
+			<form action="#" th:action="@{/logout}" method="POST">
+				<input type="submit" value="Logout" />
+			</form>
 		</div>
 	</div>
 </body>

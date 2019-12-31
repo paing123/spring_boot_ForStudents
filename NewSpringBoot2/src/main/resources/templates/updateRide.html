@@ -5,7 +5,7 @@
 <title>Update a Ride</title>
 </head>
 <body>
-	<form th:action="@{/updateRide}" th:object="${ride}" method="post">
+	<form th:action="@{/member/updateRide}" th:object="${ride}" method="post">
 	<table align="center" border="1">
 	<input type="hidden" th:field="*{id}"/>
 		<tr>

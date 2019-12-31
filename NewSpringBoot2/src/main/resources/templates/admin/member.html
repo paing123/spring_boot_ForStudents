@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Member List</title>
+</head>
+<body>
+	<div align="center">
+	<form th:action="@{/admin/searchmember}" th:object="${member}" method="post">
+		<table border="1">
+		<tr>
+			<td>Name</td>
+			<td><input type="text" th:field="*{memberName}"/></td>
+		</tr>
+		<tr>
+			<td>Login:</td>
+			<td><input type="text" th:field="*{login}"/></td>
+		</tr>
+		<tr>
+		<td colspan="2"><input type="submit" value="Search"></td>
+		</tr>
+		</table>
+	</form>
+	</div>
+	<br>
+	<br>
+	<div align="center">
+		<table border="1">
+			<th>ID</th>
+			<th>Name</th>
+			<th>Login</th>
+			<th colspan="2">Action</th>
+			<tr th:each="member : ${members}">
+				<td th:text="${member.memberId}"></td>
+				<td th:text="${member.memberName}"></td>
+				<td th:text="${member.login}"></td>
+				<td><a th:href="@{/admin/deletemember/{id}(id=${member.memberId})}">Delete</a></td>
+				<td><a th:href="@{/admin/updatemember/{id}(id=${member.memberId})}">Update</a></td>
+			</tr>
+		</table>
+		<div>
+			<a th:href="@{/addmember}">Add Member</a>
+		</div>
+		<div>
+			<form action="#" th:action="@{/logout}" method="POST">
+				<input type="submit" value="Logout" />
+			</form>
+		</div>
+	</div>
+</body>
+</html>

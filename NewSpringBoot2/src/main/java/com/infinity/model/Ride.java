@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 public class Ride {
 	public Integer id;
 	@NotNull(message = "Name can't be null")
-	@Size(min = 3, max = 10, message = "About Me must be between 3 and 10 characters")
+	@Size(min = 3, max = 100, message = "About Me must be between 3 and 10 characters")
 	@Email
 	public String name;
 	@NotNull(message = "Duration can't be null")

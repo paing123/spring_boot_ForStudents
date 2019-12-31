@@ -1,0 +1,44 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.infinity.mapper.MemberMapper">
+	<insert id="saveMember"> <!-- id and method name must be same -->
+		INSERT INTO
+		member(member_name,enable,login,password,role)
+		VALUES
+		(#{member.memberName},#{member.enable},#{member.login},#{member.password},#{member.role})
+	</insert>
+
+	<update id="updateMember">
+		update member set
+		member_name=#{member.memberName}
+		where member_id=#{member.memberId}
+	</update>
+
+	<delete id="deleteMember">
+		delete from member where member_id=#{id}
+	</delete>
+
+	<select id="findMember" resultType="com.infinity.model.Member">
+		SELECT * FROM member
+		<where>
+			<if test="member!=null | member==null">
+				role = 'ROLE_MEMBER'
+			</if>
+			<if test="member.memberId!=null">
+				member_id = #{member.memberId}
+			</if>
+			<if test="member.memberName!=null">
+				member_name Like '%' #{member.memberName} '%'
+			</if>
+			<if test="member.login!=null">
+				login = #{member.login}
+			</if>
+		</where>
+	</select>
+	
+	<select id="loginMember" resultType="com.infinity.model.Member">
+		SELECT * FROM member;
+	</select>
+</mapper>
